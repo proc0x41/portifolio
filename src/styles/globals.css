@@ -1,0 +1,72 @@
+:root {
+    --primary-color: #c9a15e;
+    --primary-color-hover: #e4cda2;
+    --secondary-color: oklch(55.2% 0.016 285.938);
+    --background-color: #17181a;
+    --text-color: #e9e9e7;
+    --text-color-opaque:#c8c8c4;
+    --font-family: 'ui-monospace', SFMono-Regular, Menlo, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* CLICKABLE LINKS */
+
+a{
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+a::after{
+  content: "click";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-color-hover));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease, opacity 220ms ease;
+  opacity: 0.95;
+}
+
+a:hover::after,
+a:focus-visible::after{
+  transform: scaleX(1);
+}
+
+a:hover,
+a:focus-visible{
+  color: var(--primary-color-hover);
+}
+
+/* END CLICKABLE LINKS */
+
+/* LINE SEPARATOR */
+
+.line-break {
+    height: 1px;
+    width: 100%;
+    background: color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    margin: 3em 0;
+}
+
+/* END LINE SEPARATOR */

@@ -1,11 +1,299 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import FullscreenImage from "../components/FullscreenImage.astro";
+import Layout from "../layouts/Layout.astro";
+import shattersLogo from "../assets/shatters-logo.svg";
+import shattersApp from "../assets/shatters-app.jpg";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Arthur Mendes's Portfolio">
+    <div class="home-container">
+        <div class="home-content">
+            <p class="highlight text-card">Backend · Systems</p>
+
+            <h1>Arthur Mendes</h1>
+            <p class="home-description">
+                I write backend and low-level software: encrypted transport, key
+                agreement, process tooling. Go, C++, .NET, Rust.
+            </p>
+            <div class="cta">
+                <a href="https://github.com/proc0x41">Projects</a>
+                <a href="#contact">Get in Touch</a>
+            </div>
+        </div>
+        <div class="home-aside"></div>
+    </div>
+    <div class="line-break"></div>
+    <div class="profile-container">
+        <div class="profile-grid">
+            <div class="profile-content">
+                <p class="text-card">profile</p>
+                <p>
+                    I am a developer focused on <bold>Backend</bold> with a particular
+                    passion for <bold>mathematics</bold>. I am currently
+                    studying and applying complex cryptography concepts in
+                    projects such as an end-to-end encrypted chat system.
+                </p>
+                <p>
+                    My interests range from security protocols like X3DH to
+                    systems automation and low-level tool development in C++. I
+                    believe mathematics is the universal language and code is
+                    how whe translate it into the real world.
+                </p>
+            </div>
+            <div class="stack">
+                <div class="border-separator-bottom stack-item">
+                    <span class="stack-indice">languages</span>
+                    <span>Go, C++, C#, TypeScript, Python</span>
+                </div>
+                <div class="border-separator-bottom stack-item">
+                    <span class="stack-indice">protocols</span>
+                    <span>QUIC, Socket, Double Ratchet, Ed25519</span>
+                </div>
+                <div class="border-separator-bottom stack-item">
+                    <span class="stack-indice">data</span>
+                    <span>PostgreSQL, SQL Server, Mongo DB</span>
+                </div>
+                <div class="border-separator-bottom stack-item">
+                    <span class="stack-indice">infra</span>
+                    <span>Docker, Azure, Linux</span>
+                </div>
+                <div class="stack-item">
+                    <span class="stack-indice">tools</span>
+                    <span>Vim, Git, Shell</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="line-break"></div>
+    <div class="profile-container">
+        <div class="profile-grid">
+            <div class="profile-content">
+                <p class="text-card">favorite work</p>
+                <h2 class="title">
+                    <img
+                        src={shattersLogo.src}
+                        alt="Shatters logo"
+                        class="title-icon"
+                    />
+                </h2>
+                <p>
+                    Self-hosted encrypted messaging across three repositories.
+                    Messages are sealed client-side. Thhe relay routes
+                    ciphertext and learns nothing else.
+                </p>
+                <div class="cta">
+                    <a href="https://github.com/superpositionlabs/shatters-sdk"
+                        >SDK</a
+                    >
+                    <a
+                        href="https://github.com/superpositionlabs/shatters-client"
+                        >Client</a
+                    >
+                    <a
+                        href="https://github.com/superpositionlabs/shatters-relay"
+                        >Relay</a
+                    >
+                </div>
+                <a class="all-projects-link" href="https://github.com/proc0x41"
+                    >All projects →</a
+                >
+            </div>
+            <div class="stack">
+                <FullscreenImage
+                    class="project-preview"
+                    src={shattersApp}
+                    alt="Shatters desktop app sign-in screen"
+                    loading="eager"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="line-break"></div>
+    <div id="contact">
+        <p class="text-card center">Contact</p>
+        <h2 class="contact-title">Open to BackEnd & Security Work</h2>
+        <div class="cta center">
+            <a href="https://www.linkedin.com/in/arthur-mendes-garcia/"
+                >LinkedIn</a
+            >
+            <a href="https://github.com/proc0x41">GitHub</a>
+            <a href="mailto:contatoarthurmendesgarcia@gmail.com">Email</a>
+        </div>
+    </div>
 </Layout>
+<style>
+    /* HOME */
+    .home-container {
+        position: relative;
+        padding: 4em 0 0;
+        display: flex;
+        justify-content: space-between;
+        background-image:
+            linear-gradient(rgb(23 24 26 / 97%), rgb(23 24 26 / 97%)),
+            url("../assets/math.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .home-container::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        /* overlay escurece e faz o fade nas bordas */
+        background:
+            linear-gradient(
+                to top,
+                rgba(23, 24, 26, 1) 0%,
+                rgba(23, 24, 26, 0) 35%
+            ),
+            linear-gradient(
+                to bottom,
+                rgba(23, 24, 26, 1) 0%,
+                rgba(23, 24, 26, 0) 35%
+            ),
+            linear-gradient(
+                to left,
+                rgba(23, 24, 26, 1) 0%,
+                rgba(23, 24, 26, 0) 35%
+            ),
+            linear-gradient(
+                to right,
+                rgba(23, 24, 26, 1) 0%,
+                rgba(23, 24, 26, 0) 35%
+            );
+        opacity: 1;
+    }
+
+    .home-container > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .home-content {
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .home-aside {
+        flex: 1;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .highlight {
+        color: var(--primary-color) !important;
+    }
+
+    .text-card {
+        font-family: var(--font-family);
+        letter-spacing: 0.1em;
+        font: 12px;
+        text-transform: uppercase;
+        color: var(--secondary-color);
+        padding: 0;
+    }
+
+    h1 {
+        font-family: "serif";
+        font-size: clamp(46px, 10vw, 80px);
+        line-height: 0.98;
+    }
+
+    .home-description {
+        color: var(--text-color-opaque);
+    }
+
+    .cta {
+        display: flex;
+        gap: 1em;
+        padding: 0.5em 0;
+    }
+
+    /* END HOME */
+
+    /* PROFILE */
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(16px, 2vw, 24px);
+    }
+
+    .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(clamp(18rem, 42vw, 28rem), 1fr)
+        );
+        gap: clamp(24px, 4vw, 64px);
+    }
+
+    .profile-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .border-separator-bottom {
+        border-bottom: 1px solid
+            color-mix(in srgb, var(--secondary-color) 70%, transparent);
+    }
+
+    .stack {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .stack-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.2rem;
+    }
+
+    .stack-indice {
+        color: var(--secondary-color);
+    }
+    /* END PROFILE */
+
+    .title {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        line-height: 0;
+    }
+
+    .title-icon {
+        display: block;
+        width: clamp(7rem, 18vw, 12rem);
+        max-inline-size: 100%;
+        block-size: auto;
+    }
+
+    .all-projects-link {
+        align-self: flex-start;
+    }
+
+    .project-preview {
+        align-self: center;
+        inline-size: min(100%, 22rem);
+        block-size: auto;
+    }
+
+    #contact {
+    }
+
+    .contact-title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+</style>
